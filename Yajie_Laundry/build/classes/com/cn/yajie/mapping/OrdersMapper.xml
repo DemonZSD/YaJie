@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cn.yajie.dao.IOrdersDao" >
+  <resultMap id="BaseResultMap" type="com.cn.yajie.pojo.Orders" >
+    <id column="oid" property="oid" jdbcType="CHAR" />
+    <result column="onumber" property="onumber" jdbcType="CHAR" />
+    <result column="uid" property="uid" jdbcType="CHAR" />
+    <result column="uname" property="uname" jdbcType="CHAR" />
+    <result column="umobile" property="umobile" jdbcType="CHAR" />
+    <result column="odate" property="odate" jdbcType="CHAR" />
+    <result column="takeDate" property="takedate" jdbcType="CHAR" />
+    <result column="washMode" property="washmode" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    oid, onumber, uid, uname, umobile, odate, takeDate, washMode
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from orders_table
+    where oid = #{oid,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from orders_table
+    where oid = #{oid,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.cn.yajie.pojo.Orders" >
+    insert into orders_table (oid, onumber, uid, uname, 
+      umobile, odate, takeDate, washMode
+      )
+    values (#{oid,jdbcType=CHAR}, #{onumber,jdbcType=CHAR}, #{uid,jdbcType=CHAR}, #{uname,jdbcType=CHAR}, 
+      #{umobile,jdbcType=CHAR}, #{odate,jdbcType=CHAR}, #{takedate,jdbcType=CHAR}, #{washmode,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.cn.yajie.pojo.Orders" >
+    insert into orders_table
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="oid != null" >
+        oid,
+      </if>
+      <if test="onumber != null" >
+        onumber,
+      </if>
+      <if test="uid != null" >
+        uid,
+      </if>
+      <if test="uname != null" >
+        uname,
+      </if>
+      <if test="umobile != null" >
+        umobile,
+      </if>
+      <if test="odate != null" >
+        odate,
+      </if>
+      <if test="takedate != null" >
+        takeDate,
+      </if>
+      <if test="washmode != null" >
+        washMode,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="oid != null" >
+        #{oid,jdbcType=CHAR},
+      </if>
+      <if test="onumber != null" >
+        #{onumber,jdbcType=CHAR},
+      </if>
+      <if test="uid != null" >
+        #{uid,jdbcType=CHAR},
+      </if>
+      <if test="uname != null" >
+        #{uname,jdbcType=CHAR},
+      </if>
+      <if test="umobile != null" >
+        #{umobile,jdbcType=CHAR},
+      </if>
+      <if test="odate != null" >
+        #{odate,jdbcType=CHAR},
+      </if>
+      <if test="takedate != null" >
+        #{takedate,jdbcType=CHAR},
+      </if>
+      <if test="washmode != null" >
+        #{washmode,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cn.yajie.pojo.Orders" >
+    update orders_table
+    <set >
+      <if test="onumber != null" >
+        onumber = #{onumber,jdbcType=CHAR},
+      </if>
+      <if test="uid != null" >
+        uid = #{uid,jdbcType=CHAR},
+      </if>
+      <if test="uname != null" >
+        uname = #{uname,jdbcType=CHAR},
+      </if>
+      <if test="umobile != null" >
+        umobile = #{umobile,jdbcType=CHAR},
+      </if>
+      <if test="odate != null" >
+        odate = #{odate,jdbcType=CHAR},
+      </if>
+      <if test="takedate != null" >
+        takeDate = #{takedate,jdbcType=CHAR},
+      </if>
+      <if test="washmode != null" >
+        washMode = #{washmode,jdbcType=CHAR},
+      </if>
+    </set>
+    where oid = #{oid,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cn.yajie.pojo.Orders" >
+    update orders_table
+    set onumber = #{onumber,jdbcType=CHAR},
+      uid = #{uid,jdbcType=CHAR},
+      uname = #{uname,jdbcType=CHAR},
+      umobile = #{umobile,jdbcType=CHAR},
+      odate = #{odate,jdbcType=CHAR},
+      takeDate = #{takedate,jdbcType=CHAR},
+      washMode = #{washmode,jdbcType=CHAR}
+    where oid = #{oid,jdbcType=CHAR}
+  </update>
+</mapper>

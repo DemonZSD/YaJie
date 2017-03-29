@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cn.yajie.dao.ICompanyDao" >
+  <resultMap id="BaseResultMap" type="com.cn.yajie.pojo.Company" >
+    <id column="cid" property="cid" jdbcType="CHAR" />
+    <result column="caddr" property="caddr" jdbcType="CHAR" />
+    <result column="cname" property="cname" jdbcType="CHAR" />
+    <result column="cchargePerson" property="cchargeperson" jdbcType="CHAR" />
+    <result column="cchargePersonMobile" property="cchargepersonmobile" jdbcType="CHAR" />
+    <result column="cchargePersonTel" property="cchargepersontel" jdbcType="CHAR" />
+    <result column="remark" property="remark" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    cid, caddr, cname, cchargePerson, cchargePersonMobile, cchargePersonTel, remark
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from company_table
+    where cid = #{cid,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from company_table
+    where cid = #{cid,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.cn.yajie.pojo.Company" >
+    insert into company_table (cid, caddr, cname, cchargePerson, 
+      cchargePersonMobile, cchargePersonTel, remark
+      )
+    values (#{cid,jdbcType=CHAR}, #{caddr,jdbcType=CHAR}, #{cname,jdbcType=CHAR}, #{cchargeperson,jdbcType=CHAR}, 
+      #{cchargepersonmobile,jdbcType=CHAR}, #{cchargepersontel,jdbcType=CHAR}, #{remark,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.cn.yajie.pojo.Company" >
+    insert into company_table
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cid != null" >
+        cid,
+      </if>
+      <if test="caddr != null" >
+        caddr,
+      </if>
+      <if test="cname != null" >
+        cname,
+      </if>
+      <if test="cchargeperson != null" >
+        cchargePerson,
+      </if>
+      <if test="cchargepersonmobile != null" >
+        cchargePersonMobile,
+      </if>
+      <if test="cchargepersontel != null" >
+        cchargePersonTel,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cid != null" >
+        #{cid,jdbcType=CHAR},
+      </if>
+      <if test="caddr != null" >
+        #{caddr,jdbcType=CHAR},
+      </if>
+      <if test="cname != null" >
+        #{cname,jdbcType=CHAR},
+      </if>
+      <if test="cchargeperson != null" >
+        #{cchargeperson,jdbcType=CHAR},
+      </if>
+      <if test="cchargepersonmobile != null" >
+        #{cchargepersonmobile,jdbcType=CHAR},
+      </if>
+      <if test="cchargepersontel != null" >
+        #{cchargepersontel,jdbcType=CHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cn.yajie.pojo.Company" >
+    update company_table
+    <set >
+      <if test="caddr != null" >
+        caddr = #{caddr,jdbcType=CHAR},
+      </if>
+      <if test="cname != null" >
+        cname = #{cname,jdbcType=CHAR},
+      </if>
+      <if test="cchargeperson != null" >
+        cchargePerson = #{cchargeperson,jdbcType=CHAR},
+      </if>
+      <if test="cchargepersonmobile != null" >
+        cchargePersonMobile = #{cchargepersonmobile,jdbcType=CHAR},
+      </if>
+      <if test="cchargepersontel != null" >
+        cchargePersonTel = #{cchargepersontel,jdbcType=CHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=CHAR},
+      </if>
+    </set>
+    where cid = #{cid,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cn.yajie.pojo.Company" >
+    update company_table
+    set caddr = #{caddr,jdbcType=CHAR},
+      cname = #{cname,jdbcType=CHAR},
+      cchargePerson = #{cchargeperson,jdbcType=CHAR},
+      cchargePersonMobile = #{cchargepersonmobile,jdbcType=CHAR},
+      cchargePersonTel = #{cchargepersontel,jdbcType=CHAR},
+      remark = #{remark,jdbcType=CHAR}
+    where cid = #{cid,jdbcType=CHAR}
+  </update>
+</mapper>
