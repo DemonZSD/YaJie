@@ -12,10 +12,9 @@
 	<meta name="renderer" content="webkit|ie-comp|ie-stand">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta http-equiv="Cache-Control" content="no-siteapp" />
-	<meta name="keywords" content="scclui框架">
-	<meta name="description" content="scclui为轻量级的网站后台管理系统模版。">
+	<meta name="keywords" content="洁雅干洗店管理系统">
+	<meta name="description" content="洁雅干洗店管理系统">
     <title>首页</title>
-	
 	<link href="<%=basePath %>/styles/common/css/sccl.css" rel="stylesheet" type="text/css"/>
 	<link href="<%=basePath %>/scripts/layerui/css/layui.css" rel="stylesheet" type="text/css"/>
 	<link href="<%=basePath %>/scripts/layerui/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
@@ -24,7 +23,7 @@
   <body>
 	<div class="layout-admin">
 		<header class="layout-header">
-			<span class="header-logo">系统框架</span> 
+			<span class="header-logo">洁雅干洗店管理系统</span> 
 			<a class="header-menu-btn" href="javascript:;"><i class="icon-font">&#xe600;</i></a>
 			<ul class="header-bar">
 				<li class="header-bar-role"><a href="javascript:;">超级管理员</a></li>

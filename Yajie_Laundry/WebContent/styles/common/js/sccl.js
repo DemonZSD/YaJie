@@ -395,9 +395,9 @@ $(function(){
 
 	/*菜单json*/
 	var menu = [{"id":"1","name":"主菜单","parentId":"0","url":"","icon":"","order":"1","isHeader":"1","childMenus":[
-					{"id":"3","name":"商品管理","parentId":"1","url":"","icon":"fa-gears","order":"1","isHeader":"0","childMenus":[
-						{"id":"4","name":"品牌管理","parentId":"3","url":"test1.html","icon":"","order":"1","isHeader":"0","childMenus":""},
-						{"id":"5","name":"分类管理","parentId":"3","url":"test2.html","icon":"","order":"1","isHeader":"0","childMenus":""}
+					{"id":"3","name":"商品管理","parentId":"1","url":"","icon":"fa-list","order":"1","isHeader":"0","childMenus":[
+						{"id":"4","name":"品牌管理","parentId":"3","url":"test1.html","icon":"fa-sliders","order":"1","isHeader":"0","childMenus":""},
+						{"id":"5","name":"分类管理","parentId":"3","url":"test2.html","icon":"fa-bars","order":"1","isHeader":"0","childMenus":""}
 					]},
 					{"id":"6","name":"订单管理","parentId":"1","url":"","icon":"&#xe602;","order":"1","isHeader":"0","childMenus":[
 						{"id":"7","name":"已付款","parentId":"6","url":"home3.html","icon":"","order":"1","isHeader":"0","childMenus":""},
