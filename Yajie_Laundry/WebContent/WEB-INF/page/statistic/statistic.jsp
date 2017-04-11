@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>统计分析-洁雅干洗店管理系统</title>
 <script type="text/javascript" src="<%=basePath %>/scripts/amcharts/amcharts.js"></script>
 <script type="text/javascript">
 var chart;

@@ -13,7 +13,7 @@ layui.use([ 'layer', 'form' ], function() {
 	form.on('submit(login)', function(data){
 	    layer.msg(JSON.stringify(data.field));
 	    $.ajax({
-	    	url:'user/toLogin.do',
+	    	url:'login/toLogin.do',
 	    	dataType: 'json',
 	    	type:'post',
 	    	data:JSON.stringify(data.field),
@@ -21,7 +21,7 @@ layui.use([ 'layer', 'form' ], function() {
 	    	async:false,
 	    	success:function(data){
 	    		if(data!=null){
-	    			window.location.href="user/main.do";
+	    			window.location.href="login/main.do";
 	    		}else{
 	    			layer.msg("用户名或密码错误！");
 	    			$("#username").val("");

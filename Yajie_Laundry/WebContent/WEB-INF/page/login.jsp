@@ -16,7 +16,7 @@
 	<meta name="description" content="洁雅干洗店">
     <title>登录-洁雅干洗店管理系统</title>
 	<link href="<%=basePath %>/styles/login/layui/css/layui.css" rel="stylesheet" type="text/css"/>
-	<link href="<%=basePath %>/styles/login/sccl.css" rel="stylesheet" type="text/css"/>
+	<link href="<%=basePath %>/styles/common/css/sccl.css" rel="stylesheet" type="text/css"/>
   </head>
   
   <body class="login-bg">
@@ -25,7 +25,6 @@
             <h1>洁雅干洗店管理系统</h1>
         </header>
         <div class="login-main">
-        <!-- action="<%=basePath %>/user/toLogin.do" method="post" -->
 			<form id="loginForm"  class="layui-form">
 				<div class="layui-form-item">
 					<label class="layui-form-label">用户名</label>
