@@ -1,7 +1,7 @@
 layui.use([ 'layer', 'form' ], function() {
 	var layer = layui.layer, $ = layui.jquery, form = layui.form();
 	form.verify({
-		username : function(value) {
+		loginname : function(value) {
 			if (value.length == 0) {
 				return '请输入用户名';
 			} else if (value.length < 5) {
@@ -24,7 +24,7 @@ layui.use([ 'layer', 'form' ], function() {
 	    			window.location.href="login/main.do";
 	    		}else{
 	    			layer.msg("用户名或密码错误！");
-	    			$("#username").val("");
+	    			$("#loginname").val("");
 	    			$("#password").val("");
 	    			return false;
 	    		}

@@ -1,7 +1,12 @@
 package com.cn.yajie.pojo;
 
-public class Washclass {
-    private String wid;
+import java.io.Serializable;
+
+public class Washclass implements Serializable{
+	
+	private static final long serialVersionUID = 3371573920647942865L;
+
+	private String wid;
 
     private String wtype;
 

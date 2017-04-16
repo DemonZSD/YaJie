@@ -9,5 +9,7 @@
         <typeAlias alias="Washclass" type="com.cn.yajie.pojo.Washclass"/>
         <typeAlias alias="Orders" type="com.cn.yajie.pojo.Orders"/>
         <typeAlias alias="Company" type="com.cn.yajie.pojo.Company"/>
+        <typeAlias alias="SystemInfo" type="com.cn.yajie.pojo.SystemInfo"/>
+        <typeAlias alias="Admin" type="com.cn.yajie.pojo.Admin"/>
     </typeAliases>
 </configuration>

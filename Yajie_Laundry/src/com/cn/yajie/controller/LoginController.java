@@ -1,10 +1,8 @@
 package com.cn.yajie.controller;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.stereotype.Controller;
@@ -13,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.cn.yajie.controller.base.BaseController;
-import com.cn.yajie.pojo.User;
+import com.cn.yajie.pojo.Admin;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Controller
@@ -28,10 +26,9 @@ public class LoginController extends BaseController{
 	 */
 	@RequestMapping("/index")
     public String toIndex(HttpServletRequest request,Model model){
-        String userId = request.getParameter("username");
-        User user = this.userService.getUserById(userId);
-        model.addAttribute("user", user);
-        Map map = new HashMap<String,String>();
+        String loginname = request.getParameter("loginname");
+        Admin admin = adminService.getByLoginname(loginname);
+        model.addAttribute("admin", admin);
         return "login";
     }
 	
@@ -42,13 +39,12 @@ public class LoginController extends BaseController{
 	 * @throws Exception
 	 */
 	@RequestMapping("/toLogin")
-	public void login(@RequestBody User user,HttpServletResponse response) throws Exception{
-//		System.out.println(user.toString());
-		String mdPwd = DigestUtils.md5Hex(user.getPassword()==null?"":user.getPassword());
-		User user2 = this.userService.checkUser(user.getUsername(), mdPwd);
+	public void login(@RequestBody Admin admin,HttpSession session,HttpServletResponse response) throws Exception{
+		String mdPwd = DigestUtils.md5Hex(admin.getPassword()==null?"":admin.getPassword());
+		Admin loginAdmin = adminService.login(admin.getLoginname(), mdPwd);
 		ObjectMapper om = new ObjectMapper();
 		response.setContentType("text/html;charset=UTF-8");
-		response.getWriter().println(om.writeValueAsString(user2));
+		response.getWriter().println(om.writeValueAsString(loginAdmin));
 	}
 	
 	/**

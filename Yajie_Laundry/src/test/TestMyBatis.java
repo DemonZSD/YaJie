@@ -24,9 +24,9 @@ public class TestMyBatis {
 
 	@Test
 	public void test1() {
-		User user = userService.getUserById("111");
+//		User user = userService.getUserById("111");
 		// System.out.println(user.getUserName());
 		// logger.info("值："+user.getUserName());
-		logger.info(JSON.toJSONString(user));
+//		logger.info(JSON.toJSONString(user));
 	}
 }

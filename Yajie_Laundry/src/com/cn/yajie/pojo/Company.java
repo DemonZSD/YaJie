@@ -1,7 +1,11 @@
 package com.cn.yajie.pojo;
 
-public class Company {
-    private String cid;
+import java.io.Serializable;
+
+public class Company implements Serializable{
+	private static final long serialVersionUID = -6902787019514700571L;
+
+	private String cid;
 
     private String caddr;
 

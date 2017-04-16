@@ -16,6 +16,17 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
 	
 	<!-- 使用默认的Servlet来响应静态文件 -->
 	<mvc:default-servlet-handler/>
+	
+	<!-- 定义SpringMVC拦截器 -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<!-- 拦截所有请求 -->
+    		<mvc:mapping path="/*"/>
+    		<!-- 自定义判断用户权限的拦截类 -->  
+    	 	<bean class="com.cn.yajie.interceptor.AuthorizedInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
+	
 	<!-- 避免IE执行AJAX时，返回JSON时出现下载文件 -->
 	<bean id="mappingJacksonHttpMessageConverter" 
 		class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">

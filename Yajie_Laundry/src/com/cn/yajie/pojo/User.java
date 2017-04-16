@@ -1,7 +1,11 @@
 package com.cn.yajie.pojo;
 
-public class User {
-    private String uid;
+import java.io.Serializable;
+
+public class User implements Serializable{
+	private static final long serialVersionUID = -6563625635443010248L;
+
+	private String uid;
 
     private String username;
 
@@ -15,7 +19,7 @@ public class User {
 
     private String uhomeaddr;
 
-    private String companyid;
+    private Company company;
 
     private String companyname;
 
@@ -26,29 +30,6 @@ public class User {
     private String remark;
 
     
-    
-    public User() {
-		super();
-	}
-
-	public User(String uid, String username, String password, String umobile, String utelphone, String umobileBak,
-			String uhomeaddr, String companyid, String companyname, String ucompanyaddr, String adddate,
-			String remark) {
-		super();
-		this.uid = uid;
-		this.username = username;
-		this.password = password;
-		this.umobile = umobile;
-		this.utelphone = utelphone;
-		this.umobileBak = umobileBak;
-		this.uhomeaddr = uhomeaddr;
-		this.companyid = companyid;
-		this.companyname = companyname;
-		this.ucompanyaddr = ucompanyaddr;
-		this.adddate = adddate;
-		this.remark = remark;
-	}
-
 	public String getUid() {
         return uid;
     }
@@ -106,14 +87,6 @@ public class User {
         this.uhomeaddr = uhomeaddr == null ? null : uhomeaddr.trim();
     }
 
-    public String getCompanyid() {
-        return companyid;
-    }
-
-    public void setCompanyid(String companyid) {
-        this.companyid = companyid == null ? null : companyid.trim();
-    }
-
     public String getCompanyname() {
         return companyname;
     }
@@ -146,12 +119,12 @@ public class User {
         this.remark = remark == null ? null : remark.trim();
     }
 
-	@Override
-	public String toString() {
-		return "User [uid=" + uid + ", username=" + username + ", password=" + password + ", umobile=" + umobile
-				+ ", utelphone=" + utelphone + ", umobileBak=" + umobileBak + ", uhomeaddr=" + uhomeaddr
-				+ ", companyid=" + companyid + ", companyname=" + companyname + ", ucompanyaddr=" + ucompanyaddr
-				+ ", adddate=" + adddate + ", remark=" + remark + "]";
+	public Company getCompany() {
+		return company;
+	}
+
+	public void setCompany(Company company) {
+		this.company = company;
 	}
     
     

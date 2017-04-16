@@ -1,19 +1,23 @@
 package com.cn.yajie.pojo;
 
-public class Product {
-    private String pid;
+import java.io.Serializable;
+
+public class Product implements Serializable{
+	private static final long serialVersionUID = -1609753591077643269L;
+
+	private String pid;
 
     private String pname;
 
-    private String wid;
+    private Washclass washclass;
 
     private String wname;
 
-    private String uid;
+    private User user;
 
     private String uname;
 
-    private String oid;
+    private Orders orders;
 
     public String getPid() {
         return pid;
@@ -31,13 +35,6 @@ public class Product {
         this.pname = pname == null ? null : pname.trim();
     }
 
-    public String getWid() {
-        return wid;
-    }
-
-    public void setWid(String wid) {
-        this.wid = wid == null ? null : wid.trim();
-    }
 
     public String getWname() {
         return wname;
@@ -47,13 +44,6 @@ public class Product {
         this.wname = wname == null ? null : wname.trim();
     }
 
-    public String getUid() {
-        return uid;
-    }
-
-    public void setUid(String uid) {
-        this.uid = uid == null ? null : uid.trim();
-    }
 
     public String getUname() {
         return uname;
@@ -63,11 +53,29 @@ public class Product {
         this.uname = uname == null ? null : uname.trim();
     }
 
-    public String getOid() {
-        return oid;
-    }
+	public Washclass getWashclass() {
+		return washclass;
+	}
 
-    public void setOid(String oid) {
-        this.oid = oid == null ? null : oid.trim();
-    }
+	public void setWashclass(Washclass washclass) {
+		this.washclass = washclass;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Orders getOrders() {
+		return orders;
+	}
+
+	public void setOrders(Orders orders) {
+		this.orders = orders;
+	}
+    
+    
 }

@@ -1,11 +1,15 @@
 package com.cn.yajie.pojo;
 
-public class Orders {
-    private String oid;
+import java.io.Serializable;
+
+public class Orders implements Serializable{
+	private static final long serialVersionUID = -6662004596427940912L;
+
+	private String oid;
 
     private String onumber;
 
-    private String uid;
+    private User user;
 
     private String uname;
 
@@ -33,13 +37,6 @@ public class Orders {
         this.onumber = onumber == null ? null : onumber.trim();
     }
 
-    public String getUid() {
-        return uid;
-    }
-
-    public void setUid(String uid) {
-        this.uid = uid == null ? null : uid.trim();
-    }
 
     public String getUname() {
         return uname;
@@ -80,4 +77,13 @@ public class Orders {
     public void setWashmode(String washmode) {
         this.washmode = washmode == null ? null : washmode.trim();
     }
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+    
 }
