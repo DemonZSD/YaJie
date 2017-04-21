@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="f" %>
 <%  
 	String path = request.getContextPath();  
 	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path;  
@@ -11,6 +13,7 @@
 <link href="<%=basePath %>/scripts/layerui/css/layui.css" rel="stylesheet" type="text/css"/>
 <link href="<%=basePath %>/scripts/layerui/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
 <link href="<%=basePath %>/styles/userManager/user.css" rel="stylesheet" type="text/css"/>
+<link href="<%=basePath %>/styles/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
 <title>会员列表-会员管理</title>
 </head>
 <body>
@@ -56,7 +59,7 @@
 		  <legend>会员列表-查询结果</legend>
 		</fieldset>
 		<div class="layui-form">
-			<table class="layui-table">
+			<table id="user-list" class="layui-table">
 			    <colgroup>
 			      <col width="50">
 			      <col width="150">
@@ -77,104 +80,17 @@
 			        <th>操作</th>
 			      </tr> 
 			    </thead>
-			    <tbody>
-			      <tr>
-			        <td><input type="checkbox" name="" lay-skin="primary"></td>
-			        <td>贤心</td>
-			        <td>15656988631</td>
-			        <td>2016-10-14</td>
-			        <td>邮政储蓄</td>
-			        <td>2017-03-20</td>
-			        <td>
-			        	<button class="layui-btn layui-btn-small layui-btn-danger">
-					  		<i class="fa fa-trash" aria-hidden="true"></i>
-						</button> 
-						<button class="layui-btn layui-btn-small layui-btn-normal">
-					  		<i class="fa fa-eye" aria-hidden="true"></i>
-						</button> 
-					</td>
-			      </tr>
-			      <tr>
-			        <td><input type="checkbox" name="" lay-skin="primary"></td>
-			        <td>贤心</td>
-			        <td>15656988631</td>
-			        <td>2016-10-14</td>
-			        <td>邮政储蓄</td>
-			        <td>2017-03-20</td>
-			        <td>
-			        	<button class="layui-btn layui-btn-small layui-btn-danger">
-					  		<i class="fa fa-trash" aria-hidden="true"></i>
-						</button> 
-						<button class="layui-btn layui-btn-small layui-btn-normal">
-					  		<i class="fa fa-eye" aria-hidden="true"></i>
-						</button> 
-					</td>
-			      </tr>
-			      <tr>
-			        <td><input type="checkbox" name="" lay-skin="primary"></td>
-			        <td>贤心</td>
-			        <td>15656988631</td>
-			        <td>2016-10-14</td>
-			        <td>邮政储蓄</td>
-			        <td>2017-03-20</td>
-			        <td>
-			        	<button class="layui-btn layui-btn-small layui-btn-danger">
-					  		<i class="fa fa-trash" aria-hidden="true"></i>
-						</button> 
-						<button class="layui-btn layui-btn-small layui-btn-normal">
-					  		<i class="fa fa-eye" aria-hidden="true"></i>
-						</button> 
-					</td>
-			      </tr>
-			      <tr>
-			        <td><input type="checkbox" name="" lay-skin="primary"></td>
-			        <td>贤心</td>
-			        <td>15656988631</td>
-			        <td>2016-10-14</td>
-			        <td>邮政储蓄</td>
-			        <td>2017-03-20</td>
-			        <td>
-			        	<button class="layui-btn layui-btn-small layui-btn-danger">
-					  		<i class="fa fa-trash" aria-hidden="true"></i>
-						</button> 
-						<button class="layui-btn layui-btn-small layui-btn-normal">
-					  		<i class="fa fa-eye" aria-hidden="true"></i>
-						</button> 
-					</td>
-			      </tr>
-			      <tr>
-			        <td><input type="checkbox" name="" lay-skin="primary"></td>
-			        <td>贤心</td>
-			        <td>15656988631</td>
-			        <td>2016-10-14</td>
-			        <td>邮政储蓄</td>
-			        <td>2017-03-20</td>
-			        <td>
-			        	<button class="layui-btn layui-btn-small layui-btn-danger">
-					  		<i class="fa fa-trash" aria-hidden="true"></i>
-						</button> 
-						<button class="layui-btn layui-btn-small layui-btn-normal">
-					  		<i class="fa fa-eye" aria-hidden="true"></i>
-						</button> 
-					</td>
-			      </tr>
-			      
-			    </tbody>
 		  </table>
 	</div>
 	<div id="userlistpage"></div>
 </div>
 
 <script type="text/javascript" src="<%=basePath %>/scripts/layerui/layui.js"></script>
+<script type="text/javascript" src="<%=basePath %>/scripts/jquery.js"></script>
+<script type="text/javascript" src="<%=basePath %>/scripts/jquery.dataTables.js"></script>
 <script type="text/javascript">
 	layui.use(['laypage', 'layer','form'],function(){
 		var form = layui.form(); //只有执行了这一步，部分表单元素才会修饰成功
-		var laypage = layui.laypage,layer = layui.layer;
-		laypage({
-		    cont: 'userlistpage',
-		    pages: 20 ,//总页数
-		    groups: 5 //连续显示分页数
-		  });
 		//自定义验证规则
 	  	form.verify({
 // 		    title: function(value){
@@ -195,6 +111,44 @@
 	      })
 	      return false;
 	    });
+	});
+	var oTable1 = $("#user-list").dataTable({
+		"lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+		"autoWidth": false,
+		"processing": true,
+		"serverSide": true,
+		"ajax":{
+	        url:"userajaxlist.do",
+	        type:"POST",
+	        contentType : 'application/x-www-form-urlencoded',
+	        data:{
+	        	"pageIndex":1
+	        }
+	    },
+        "columns":[
+            {"data": "username","width":"140"},
+            {"data":"umobile","width":"140"},
+            {"data":"adddate","width":"140"},
+            {"data":"companyname","width":"140"},
+            {"data":"adddate","width":"140"},
+            {"data":"companyname","width":"140"},
+         ],
+         "language": {
+             "lengthMenu": "每页显示 _MENU_ 条",
+             "zeroRecords": "暂无数据",
+             "info": "第 _PAGE_ 页,共 _PAGES_页",
+             "infoEmpty": "过滤：",
+             "sInfoFiltered": "(从 _MAX_ 条记录中过滤)",
+             "sSearch": "搜索：",
+             "oPaginate": {
+ 				"sFirst": "首页",
+ 				"sPrevious": "前一页",
+ 				"sNext": "后一页",
+ 				"sLast": "尾页"
+ 			}
+         },
+         "jQueryUI" : true,
+	     "pagingType": "full_numbers",
 	});
 </script>
 </body>

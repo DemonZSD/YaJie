@@ -1,16 +1,18 @@
 package com.cn.yajie.service.impl;
 
+
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.cn.yajie.dao.IUserDao;
 import com.cn.yajie.pojo.User;
 import com.cn.yajie.service.IUserService;
+import com.cn.yajie.util.common.PageModel;
 
 @Service("userService")
 public class UserServiceImpl implements IUserService {
@@ -18,15 +20,27 @@ public class UserServiceImpl implements IUserService {
     private IUserDao userDao;
 	
 	public User getUserById(String userId) {
+		return userDao.getUserByUid(userId);
+	}
+
+
+	public List<User> getUserListAll() {
+		return userDao.getUserListAll();
+	}
+
+
+	public List<User> findUser(User user, PageModel pageModel) {
+		Map<String,Object> params = new HashMap<String,Object>();
+		params.put("user", user);
+		int recordCount = userDao.countWithParams(params);
+		pageModel.setRecordCount(recordCount);
 		
-		return this.userDao.selectByUid(userId);
+		if(recordCount>0){
+			params.put("pageModel", pageModel);
+		}
+		
+		return userDao.findUserList(params);
 	}
 
-	public User checkUser(String username, String password) {
-		Map<String , String> map = new HashMap<String , String>();
-		map.put("username", username);
-		map.put("password", password);
-		return this.userDao.checkUser(map);
-	}
-
+	
 }
