@@ -42,5 +42,10 @@ public class UserServiceImpl implements IUserService {
 		return userDao.findUserList(params);
 	}
 
+
+	public void insertUser(User user) {
+		userDao.insertUser(user);
+	}
+
 	
 }

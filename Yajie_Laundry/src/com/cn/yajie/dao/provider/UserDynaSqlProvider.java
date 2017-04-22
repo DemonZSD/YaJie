@@ -28,6 +28,7 @@ public class UserDynaSqlProvider {
 					
 					//根据手机号模糊查询
 					if(user.getUmobile()!=null && !("").equals(user.getUmobile())){
+						OR();
 						WHERE(" umobile LIKE CONCAT ('%',#{user.umobile},'%') ");//CONCAT 连接字符串
 					}
 				}
@@ -56,6 +57,7 @@ public class UserDynaSqlProvider {
 					
 					//根据手机号模糊查询
 					if(user.getUmobile()!=null && !("").equals(user.getUmobile())){
+						OR();
 						WHERE(" umobile LIKE CONCAT ('%',#{user.umobile},'%') ");//CONCAT 连接字符串
 					}
 				}

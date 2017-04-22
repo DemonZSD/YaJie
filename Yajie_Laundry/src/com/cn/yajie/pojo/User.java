@@ -17,15 +17,15 @@ public class User implements Serializable{
 
     private String umobileBak;
 
-    private String uhomeaddr;
+    private String uhomeAddr;
 
     private Company company;
 
-    private String companyname;
+    private String companyName;
 
-    private String ucompanyaddr;
+    private String ucompanyAddr;
 
-    private String adddate;
+    private String addDate;
 
     private String remark;
 
@@ -79,37 +79,6 @@ public class User implements Serializable{
         this.umobileBak = umobileBak == null ? null : umobileBak.trim();
     }
 
-    public String getUhomeaddr() {
-        return uhomeaddr;
-    }
-
-    public void setUhomeaddr(String uhomeaddr) {
-        this.uhomeaddr = uhomeaddr == null ? null : uhomeaddr.trim();
-    }
-
-    public String getCompanyname() {
-        return companyname;
-    }
-
-    public void setCompanyname(String companyname) {
-        this.companyname = companyname == null ? null : companyname.trim();
-    }
-
-    public String getUcompanyaddr() {
-        return ucompanyaddr;
-    }
-
-    public void setUcompanyaddr(String ucompanyaddr) {
-        this.ucompanyaddr = ucompanyaddr == null ? null : ucompanyaddr.trim();
-    }
-
-    public String getAdddate() {
-        return adddate;
-    }
-
-    public void setAdddate(String adddate) {
-        this.adddate = adddate == null ? null : adddate.trim();
-    }
 
     public String getRemark() {
         return remark;
@@ -125,6 +94,38 @@ public class User implements Serializable{
 
 	public void setCompany(Company company) {
 		this.company = company;
+	}
+
+	public String getUhomeAddr() {
+		return uhomeAddr;
+	}
+
+	public void setUhomeAddr(String uhomeAddr) {
+		this.uhomeAddr = uhomeAddr;
+	}
+
+	public String getCompanyName() {
+		return companyName;
+	}
+
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
+	}
+
+	public String getUcompanyAddr() {
+		return ucompanyAddr;
+	}
+
+	public void setUcompanyAddr(String ucompanyAddr) {
+		this.ucompanyAddr = ucompanyAddr;
+	}
+
+	public String getAddDate() {
+		return addDate;
+	}
+
+	public void setAddDate(String addDate) {
+		this.addDate = addDate;
 	}
     
     

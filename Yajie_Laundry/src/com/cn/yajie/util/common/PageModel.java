@@ -2,7 +2,6 @@ package com.cn.yajie.util.common;
 
 public class PageModel {
 	
-	
 	//总记录数
 	private int recordCount;
 	
@@ -13,6 +12,10 @@ public class PageModel {
 	private int pageSize = JieYaConstants.PAGE_DEFAULT_SIZE;
 	//总页数
 	private int totalSize;
+	
+	//数据查询 起始
+	private int firstLimitParam;
+	
 	public int getRecordCount() {
 		this.recordCount = this.recordCount <= 0 ? 0 : this.recordCount;
 		return recordCount;
@@ -45,8 +48,18 @@ public class PageModel {
 	public void setTotalSize(int totalSize) {
 		this.totalSize = totalSize;
 	}
-	
-	public int getFirstLimitParam(){
-		return this.pageIndex>1?(this.pageIndex - 1) * this.getPageSize():0;
+
+	public void setFirstLimitParam(int firstLimitParam) {
+		this.firstLimitParam = firstLimitParam;
 	}
+	public int getFirstLimitParam() {
+		return firstLimitParam;
+	}
+	@Override
+	public String toString() {
+		return "PageModel [recordCount=" + recordCount + ", pageIndex=" + pageIndex + ", pageSize=" + pageSize
+				+ ", totalSize=" + totalSize + ", firstLimitParam=" + firstLimitParam + "]";
+	}
+	
+	
 }
