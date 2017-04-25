@@ -27,6 +27,6 @@ public interface IUserDao {
 	int countWithParams(Map<String,Object> params);
 
 	@Insert("INSERT INTO " + USERTABLE +
-			" ( uid,username,umobile,companyName,ucompanyAddr,addDate ) VALUES (#{uid},#{username},#{umobile},#{companyName},#{ucompanyAddr},#{addDate})")
+			" ( uid,username,umobile,uhomeAddr,companyName,ucompanyAddr,addDate ) VALUES (#{uid},#{username},#{umobile},#{uhomeAddr},#{companyName},#{ucompanyAddr},#{addDate})")
 	void insertUser(User user);
 }

@@ -1,8 +1,18 @@
-.main-content{
+.main-content {
 	margin: 0 auto;
 	margin-top: 10px;
 	margin-left: 10px;
 }
-.table-content{
+
+.table-content {
 	margin-top: 10px;
+}
+
+.require-input {
+	color: red;
+	display: inline-block;
+	height: 38px;
+	line-height: 38px;
+	font-weight: bolder;
+	width:4px;
 }

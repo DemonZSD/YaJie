@@ -1,17 +1,17 @@
 package com.cn.yajie.dao;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Select;
+
 import com.cn.yajie.pojo.Company;
+import static com.cn.yajie.util.common.JieYaConstants.COMPANYTABLE;
 
 public interface ICompanyDao {
-    int deleteByPrimaryKey(String cid);
+	
+	@Select("select * from " + COMPANYTABLE )
+	List<Company> getCompanyListAll();
 
-    int insert(Company record);
-
-    int insertSelective(Company record);
-
-    Company selectByPrimaryKey(String cid);
-
-    int updateByPrimaryKeySelective(Company record);
-
-    int updateByPrimaryKey(Company record);
+	@Select("select * from " + COMPANYTABLE + " where cid = #{cid}")
+	Company getCompanyNameByCid(String companyId);
 }
