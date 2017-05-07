@@ -81,14 +81,14 @@ public class UserController extends BaseController{
 	 */
 	@RequestMapping("/userAdd")
 	public ModelAndView userAdd(String flag,@ModelAttribute User user , ModelAndView mv) throws Exception{
-		if(("1").equals(flag)){
+		if(("1").equals(flag)){//表示跳转到修改页面
 			/**
 			 * 查询单位列表
 			 */
 			List<Company> companyList = companyService.getCompanyListAll();
 			mv.addObject("companyList", companyList);
 			mv.setViewName("user/addUser");
-		}else if(("2").equals(flag)){
+		}else if(("2").equals(flag)){//执行添加提交表单
 			user.setUid(UUID.randomUUID().toString());
 			if(user.getCompanyName()==null||("").equals(user.getCompanyName())){
 				Company company = companyService.getCompanyNameByCid(user.getCompanyId());
@@ -97,8 +97,42 @@ public class UserController extends BaseController{
 			}
 			user.setAddDate(ConvertUtil.Data2String(new Date(), "yyyyMMdd"));
 			userService.insertUser(user);
-			mv.setViewName("user/addUser");
+			mv.setViewName("user/userlist");
 		}
+		return mv;
+	}
+	
+	@RequestMapping("/editUser")
+	public ModelAndView editUser(String flag,@ModelAttribute User user , ModelAndView mv){
+		if(("1").equals(flag)){//跳转到修改页面
+			/**
+			 * 查询单位列表
+			 */
+			List<Company> companyList = companyService.getCompanyListAll();
+			User initUser = userService.getUserById(user.getUid());
+			
+			mv.addObject("companyList", companyList);
+			mv.addObject("userInfo", initUser);
+			mv.setViewName("user/editUser");
+			
+		}else if(("2").equals(flag)){//修改用户表单提交
+			if(user.getCompanyName()==null||("").equals(user.getCompanyName())){
+				Company company = companyService.getCompanyNameByCid(user.getCompanyId());
+				user.setCompanyName(company.getCname());//公司名称
+				user.setUcompanyAddr(company.getCaddr());//公司地址
+			}
+			userService.updateUser(user);
+			mv.setViewName("user/userlist");
+		}
+		return mv;
+	}
+	
+	@RequestMapping("/userdetail")
+	public ModelAndView userdetail(@ModelAttribute User user , ModelAndView mv){
+		User newUser = userService.getUserById(user.getUid());
+		
+		mv.addObject("userInfo", newUser);
+		mv.setViewName("user/userdetail");
 		return mv;
 	}
 }

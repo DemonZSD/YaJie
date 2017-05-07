@@ -66,4 +66,82 @@ public class UserDynaSqlProvider {
 		
 		return sql;
 	}
+	
+	public String updateUser(final User user){
+		String sql = new SQL(){
+			{
+				UPDATE(USERTABLE);
+				if(user.getUsername()!=null && !("").equals(user.getUsername())){
+					SET("username = #{username}");
+				}
+				if(user.getUmobile()!=null && !("").equals(user.getUmobile())){
+					SET("umobile = #{umobile}");
+				}
+				if(user.getUmobileBak()!=null && !("").equals(user.getUmobileBak())){
+					SET("umobileBak = #{umobileBak}");
+				}
+				if(user.getCompanyId()!=null && !("").equals(user.getCompanyId())){
+					SET(" companyId = #{companyId}");
+				}
+				if(user.getUtelphone()!=null && !("").equals(user.getUtelphone())){
+					SET(" utelphone = #{utelphone}");
+				}
+				if(user.getUcompanyAddr()!=null && !("").equals(user.getUcompanyAddr())){
+					SET(" ucompanyAddr = #{ucompanyAddr}");
+				}
+				if(user.getCompanyName()!=null && !("").equals(user.getCompanyName())){
+					SET(" companyName = #{companyName}");
+				}
+				if(user.getUhomeAddr()!=null && !("").equals(user.getUhomeAddr())){
+					SET(" uhomeAddr = #{uhomeAddr}");
+				}
+				
+				WHERE(" uid = #{uid}");
+			}
+			
+		}.toString();
+		
+		return sql;
+	}
+	
+	public String insertUser(final User user){
+		String sql = new SQL(){
+			{
+				INSERT_INTO (USERTABLE);
+				if(user.getUid()!=null && !("").equals(user.getUid())){
+					VALUES("uid ","#{uid}");
+				}
+				if(user.getUsername()!=null && !("").equals(user.getUsername())){
+					VALUES("username ","#{username}");
+				}
+				if(user.getUmobile()!=null && !("").equals(user.getUmobile())){
+					VALUES("umobile "," #{umobile}");
+				}
+				if(user.getUmobileBak()!=null && !("").equals(user.getUmobileBak())){
+					VALUES("umobileBak "," #{umobileBak}");
+				}
+				if(user.getCompanyId()!=null && !("").equals(user.getCompanyId())){
+					VALUES(" companyId "," #{companyId}");
+				}
+				if(user.getUtelphone()!=null && !("").equals(user.getUtelphone())){
+					VALUES(" utelphone "," #{utelphone}");
+				}
+				if(user.getUcompanyAddr()!=null && !("").equals(user.getUcompanyAddr())){
+					VALUES(" ucompanyAddr "," #{ucompanyAddr}");
+				}
+				if(user.getCompanyName()!=null && !("").equals(user.getCompanyName())){
+					VALUES(" companyName "," #{companyName}");
+				}
+				if(user.getAddDate()!=null && !("").equals(user.getAddDate())){
+					VALUES(" addDate "," #{addDate}");
+				}
+				if(user.getUhomeAddr()!=null && !("").equals(user.getUhomeAddr())){
+					VALUES(" uhomeAddr "," #{uhomeAddr}");
+				}
+			}
+			
+		}.toString();
+		
+		return sql;
+	}
 }

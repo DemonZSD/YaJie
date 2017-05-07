@@ -1,17 +1,6 @@
 package com.cn.yajie.dao;
 
-import com.cn.yajie.pojo.Washclass;
-
+import static com.cn.yajie.util.common.JieYaConstants.WASHCLASSTABLE;
 public interface IWashclassDao {
-    int deleteByPrimaryKey(String wid);
-
-    int insert(Washclass record);
-
-    int insertSelective(Washclass record);
-
-    Washclass selectByPrimaryKey(String wid);
-
-    int updateByPrimaryKeySelective(Washclass record);
-
-    int updateByPrimaryKey(Washclass record);
+	
 }

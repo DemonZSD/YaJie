@@ -15,4 +15,6 @@ public class BaseController {
 	
 	@Resource
 	protected ICompanyService companyService;
+	
+	
 }

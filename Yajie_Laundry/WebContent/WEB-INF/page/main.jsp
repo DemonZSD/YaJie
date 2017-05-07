@@ -15,6 +15,7 @@
 	<meta name="keywords" content="洁雅干洗店管理系统">
 	<meta name="description" content="洁雅干洗店管理系统">
     <title>首页</title>
+    <link rel="shortcut icon" href="<%=basePath %>/images/favicon.ico" >
 	<link href="<%=basePath %>/styles/common/css/sccl.css" rel="stylesheet" type="text/css"/>
 	<link href="<%=basePath %>/scripts/layerui/css/layui.css" rel="stylesheet" type="text/css"/>
 	<link href="<%=basePath %>/scripts/layerui/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
@@ -74,6 +75,5 @@
 	<script type="text/javascript" src="<%=basePath %>/styles/common/lib/jquery-1.9.0.min.js"></script>
 	<script type="text/javascript" src="<%=basePath %>/styles/common/js/sccl.js"></script>
 	<script type="text/javascript" src="<%=basePath %>/styles/common/js/sccl-util.js"></script>
-	
   </body>
 </html>

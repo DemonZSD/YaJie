@@ -28,9 +28,15 @@ public interface IUserService {
 	List<User> findUser(User user, PageModel pageModel);
 
 	/**
-	 * 插入用户
+	 * 添加用户
 	 * @param user
 	 */
 	void insertUser(User user);
+
+	/**
+	 * 修改用户
+	 * @param user
+	 */
+	void updateUser(User user);
 	
 }

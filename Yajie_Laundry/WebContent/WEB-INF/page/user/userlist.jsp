@@ -10,7 +10,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<%-- <link href="<%=basePath %>/styles/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/> --%>
 <link href="<%=basePath %>/scripts/layerui/css/layui.css" rel="stylesheet" type="text/css"/>
 <link href="<%=basePath %>/scripts/layerui/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
 <link href="<%=basePath %>/styles/userManager/user.css" rel="stylesheet" type="text/css"/>
@@ -42,6 +41,7 @@
 <script type="text/javascript" src="<%=basePath %>/scripts/jquery.js"></script>
 <script type="text/javascript" src="<%=basePath %>/scripts/jquery.dataTables.js"></script>
 <script type="text/javascript" src="<%=basePath %>/scripts/dataTables.bootstrap.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>/scripts/common/common.js"></script>
 <script type="text/javascript">
 	layui.use(['laypage', 'layer','form'],function(){
 		var form = layui.form(); //只有执行了这一步，部分表单元素才会修饰成功
@@ -87,9 +87,9 @@
             {"data":"companyName","width":"120","orderable":false},
             {"data":"addDate","width":"120","searchable":false,"orderable":false},
             {"data":"uid","width":"120","render": function ( data, type, row,   meta ) {
-            	return '<a href="userdetail?uid='+data
-    			+' " class="layui-btn layui-btn-small layui-btn-warm">查看</a>&nbsp;&nbsp;&nbsp;<a href="useredit?uid='+data
-    			+'" class="layui-btn layui-btn-small layui-btn-danger">修改</a>';
+            	return '<a href="userdetail.do?uid='+data
+    			+' " class="layui-btn layui-btn-small layui-btn-warm">查看</a>&nbsp;&nbsp;&nbsp;<a href="editUser.do?flag=1&uid='+data
+    			+'" class="layui-btn layui-btn-small layui-btn-danger self-btn-edit" onclick="test()">修改</a>';
 			},"orderable":false},
          ],
          "language": {
@@ -106,6 +106,10 @@
                  "previous":   "前一页"
              }
          }
+	});
+
+	$(".self-btn-edit").click(function() {
+		alert("why  ....!");
 	});
 </script>
 </body>
