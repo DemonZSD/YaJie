@@ -404,7 +404,7 @@ $(function(){
 						{"id":"5","name":"分类管理","parentId":"3","url":"test2.html","icon":"fa-bars","order":"1","isHeader":"0","childMenus":""}
 					]},
 					{"id":"14","name":"衣物分类管理","parentId":"1","url":"","icon":"fa-universal-access","order":"1","isHeader":"0","childMenus":[
-						{"id":"15","name":"衣物分类管理","parentId":"14","url":"test1.html","icon":"fa-sliders","order":"1","isHeader":"0","childMenus":""},
+						{"id":"15","name":"衣物分类管理","parentId":"14","url":"../washclass/list.do","icon":"fa-sliders","order":"1","isHeader":"0","childMenus":""},
 					]},
 				]},
 				{"id":"2","name":"订单管理","parentId":"0","url":"","icon":"","order":"2","isHeader":"1","childMenus":[

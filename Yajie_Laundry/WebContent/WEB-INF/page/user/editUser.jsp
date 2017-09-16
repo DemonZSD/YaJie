@@ -62,7 +62,7 @@
 		      <select name="companyId" lay-search="">
 		        <option value="">请选择所在单位</option>
 		      	<c:forEach items="${companyList }" var="companyList">
-		      		<option value="${companyList.cid}"<c:if test="${companyList.cid==userInfo.companyId}">selected = "selected"</c:if> >${companyList.cname}</option>
+		      		<option value="${companyList.cid}"><c:if test="${companyList.cid==userInfo.companyId}">selected = "selected"</c:if> >${companyList.cname}</option>
 		      	</c:forEach>
 		      </select>
 		    </div>
